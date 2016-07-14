@@ -12,6 +12,9 @@ abstract class Restful {
 
     private $httpVersion = "HTTP/1.1";
 
+    /*
+     * This function set the minimum HTTP Headers
+     */
     public function setHttpHeaders($contentType, $statusCode) {
 
         $statusMessage = $this->getHttpStatusMessage($statusCode);
@@ -20,6 +23,10 @@ abstract class Restful {
         header("Content-Type:" . $contentType);
     }
 
+    /*
+     * This function return the meaning of the status code set
+     * @Param $statusCode
+     */
     public function getHttpStatusMessage($statusCode) {
         $httpStatus = array(
             100 => 'Continue',
@@ -66,6 +73,10 @@ abstract class Restful {
         return ($httpStatus[$statusCode]) ? $httpStatus[$statusCode] : $status[500];
     }
     
+    /*
+     * This function returns the json format of the data received
+     * @Param $responseData
+     */
     public function encodeJson($responseData) {
         $jsonResponse = json_encode($responseData);
         return $jsonResponse;		
@@ -75,6 +86,12 @@ abstract class Restful {
     
     abstract function encodeXML($responseData); //Any class that extends this class must implement this method
     
+    /*
+     * This function will echo the data in the format set by the header
+     * @param $rawData - The Data that must be formatted to according to Header Content-Type
+     * @param $statusCode - The Status Code
+     * 
+     */
     public function getData($rawData, $statusCode = '') {
 
         if($statusCode == ''){
@@ -87,7 +104,7 @@ abstract class Restful {
         }
 
         $ContentType = $_SERVER['HTTP_ACCEPT'];
-        $this->setHttpHeaders($requestContentType, $statusCode);
+        $this->setHttpHeaders($ContentType, $statusCode);
 
         switch($ContentType){
             case 'application/json':

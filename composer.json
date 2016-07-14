@@ -1,0 +1,8 @@
+{
+    "name": "KlaasMasana/SimpleRest",
+    "autoload": {
+        "psr-0" : {
+            "KlaasMasana\\SimpleRest" : "src"
+        }
+    }
+}

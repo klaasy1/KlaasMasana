@@ -1,6 +1,6 @@
 {
     "name": "klaasmasana/restful",
-    "description": "A simple Restful Base class inteded for novice developers",
+    "description": "A simple Restful Base class intended for novice developers",
     "type": "library",
     "license": "GPL-3",
     "authors": [

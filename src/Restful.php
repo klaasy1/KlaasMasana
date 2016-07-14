@@ -11,7 +11,7 @@ namespace Rest;
 abstract class Restful {
 
     private $httpVersion = "HTTP/1.1";
-
+    
     /*
      * This function set the minimum HTTP Headers
      */
